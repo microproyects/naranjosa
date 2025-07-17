@@ -7,16 +7,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bienvenida">
-    <h1>¡Bienvenida, mi amor!</h1>
-    <p>Te llevaré por un recorrido lleno de recuerdos, amor y sorpresas...</p>
-    <button onclick="irASiguiente()">Comenzar Recorrido</button>
-  </div>
+  <!-- Decoración flotante -->
+  <div class="decoracion heart" style="top: 20%; left: 70%;"></div>
+  <div class="decoracion nube" style="top: 10%; left: 20%;"></div>
+  <div class="decoracion estrella" style="top: 50%; left: 85%;"></div>
+  <div class="decoracion heart" style="top: 60%; left: 10%;"></div>
+  <div class="decoracion nube" style="top: 30%; left: 60%;"></div>
+  <div class="decoracion estrella" style="top: 75%; left: 45%;"></div>
 
+
+  <!-- Frases de amor -->
+  <div class="frase" style="top: 10%; left: 5%;">Te amo 💗</div>
+  <div class="frase" style="top: 50%; left: 60%;">Eres mi princesa por toda la vida</div>
+    <div class="frase" style="top: 30%; left: 2%;">Leidy</div>
+  <div class="frase" style="top: 15%; left: 60%;">Mi chiquitita </div>  
+  <div class="frase" style="top: 70%; left: 40%;">Mi naranjosa</div>
+    <img src="img/cat.png" style=" position: absolute;left: 30%;" width="100px" alt="Gato con corazón">
+
+  <!-- Pollo y botón -->
   <img src="img/pollo.png" alt="Pollo Guía" class="pollo">
-  <div class="globo">
-    Hola amor, soy tu pollo guía 🐣
-  </div>
+<div class="globo">
+  Holaa mamáa Soy pollo je <br>
+Te guiare muejejej,vamos vamos que papá tiene algo que decirte
+
+</div>
+
+  <button onclick="irASiguiente()" class="boton-comenzar">Comenzar recorrido</button>
 
   <audio id="musica-fondo" autoplay loop>
     <source src="audio/tuCancion.mp3" type="audio/mpeg">

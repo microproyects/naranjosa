@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para ti 💌</title>
+  <link rel="stylesheet" href="style1.css">
+
+</head>
+<body>
+  <img src="img/pollo.png" alt="Pollo" class="pollo">
+
+  <div class="carta-contenedor">
+    <h2>Carta para ti 💖</h2>
+    <p id="texto-carta"></p>
+  </div>
+
+  <button onclick="irASiguiente()" class="boton-comenzar">Siguiente</button>
+
+  <script src="script.js"></script>
+  <script>
+    const texto = `Para mi Génesis para mi amor...
+
+
+    Empezamos como 2 desconocidos que se ayudaban entre si, tu con caratulas, yo con tus trabajos de programación.
+    Pero poco a poco, esos pequeños gestos se convirtieron en algo más grande.
+    Dios nos puso juntos en la agencia nuestras pasantias para conocernos mejor, conoci mas a una mujer increible, su personalidad la que me enamoró, su risa que me alegraba el día, y su forma de ser que me atrapo como no amarte? Como no amarte génesis tu corazón tan grande, tu bondad, tu dulzura, tus bromas, incluso tu forma de caminar jajaja miraba a una pequeña caminar enojada aveces cuando la hacia enojar, pero eso me encanta, me encanta todo de ti, y no podía dejar de pensar en ti amor, en tutorias cuando fui por ti a verte y se me desvio la mano jaja perdon, fuimos a comprar para la comida de tu casa me sentia tan feliz me decias amor cada 2s me llenaba de felicidad y prometimos amor y esta promesa ya fue con besito tocar toda esa fila de timbres
+
+    Desde que llegaste a mi vida, todo cambió. 
+    Cada momento contigo es un regalo, cada sonrisa tuya es mi motor, y cada día que pasa me convenzo más de lo mucho que te amo 💕.
+
+    Gracias por ser tú, por cada risa, por cada abrazo, y por hacerme tan feliz 🥹.
+
+    Siempre tuyo,
+    Daniel 🐧`;
+
+    let i = 0;
+    const velocidad = 50; // velocidad de escritura
+
+    function escribir() {
+      if (i < texto.length) {
+        document.getElementById("texto-carta").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribir, velocidad);
+      }
+    }
+
+    escribir();
+  </script>
+</body>
+</html>
