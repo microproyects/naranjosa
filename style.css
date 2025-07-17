@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 50px;
   font-family: 'Comic Sans MS', cursive;
   background: linear-gradient(135deg, #fff1f1, #fce4f4, #fcefdc);
   height: 100vh;
@@ -47,7 +48,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 20px;
-  width: 220px;
+  width: 200px;
   animation: flotar 3s ease-in-out infinite;
   z-index: 1;
 }
@@ -117,6 +118,17 @@ body {
 .boton-comenzar:hover {
   transform: scale(1.08);
 }
+.pantalla {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  background: #d1a0e4;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  z-index: 99;
+}
 
 /* Responsive */
 @media (max-width: 600px) {
@@ -127,7 +139,7 @@ body {
   }
 
   .pollo {
-    width: 150px;
+    width: 130px;
   }
 
   .boton-comenzar {
@@ -146,7 +158,6 @@ body {
   position: absolute;
   font-size: 1.2rem;
   color: #a05da0;
-  font-style: italic;
   animation: flotarFrase 5s ease-in-out infinite;
   opacity: 0.7;
   z-index: 0;
