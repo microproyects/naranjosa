@@ -1,20 +1,42 @@
-// Cargar contenido dinámico
-function cargarSeccion(nombreArchivo) {
-  fetch(`secciones/${nombreArchivo}.html`)
+function cargarSeccion(nombre) {
+  fetch(`secciones/${nombre}.html`)
     .then(res => res.text())
     .then(html => {
-      document.getElementById('contenido').innerHTML = html;
-      window.scrollTo(0, 0); // por si hace scroll
+      const contenedor = document.getElementById("contenido");
+      contenedor.innerHTML = ""; // Limpiar antes de cargar
+      contenedor.innerHTML = html;
+
+      // Cargar JS especial (si existe)
+      const script = document.createElement("script");
+      script.src = `js/${nombre}.js`;
+      script.onload = () => {
+        console.log(`Script ${nombre}.js cargado`);
+      };
+      document.body.appendChild(script);
+    })
+    .catch(err => {
+      console.error("Error al cargar sección:", err);
+      document.getElementById("contenido").innerHTML = "<p>Error cargando sección 💔</p>";
     });
 }
 
-// Mantener pantalla completa
+
 function pantallaCompleta() {
-  const elem = document.documentElement;
-  if (elem.requestFullscreen) elem.requestFullscreen();
+  const doc = document.documentElement;
+  if (doc.requestFullscreen) doc.requestFullscreen();
+  else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
 }
 
-// Primera sección al cargar
-window.onload = () => {
-  cargarSeccion('carta');
+function irASiguiente() {
+  cargarSeccion('galeria');
+}
+
+function iniciarMusicaYContinuar(seccion) {
+  const musica = document.getElementById("musica-fondo");
+  if (musica && musica.paused) {
+    musica.play().catch(() => {
+      alert("Dale play a la música si no comienza automáticamente ❤️");
+    });
+  }
+  cargarSeccion(seccion);
 }

@@ -1,0 +1,109 @@
+.carta-contenedor {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #cfa1f4;
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 450px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  animation: aparecer 1s ease-in-out;
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5c2768;
+  position: relative;
+  z-index: 1;
+  margin: 50px auto 80px;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#texto-poema::after {
+  content: "|";
+  animation: parpadeo 0.7s infinite;
+  color: #cfa1f4;
+  font-weight: bold;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.pollo {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  width: 130px;
+  animation: flotar 3s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.globo {
+  position: fixed;
+  bottom: 280px;
+  right: 160px;
+  background: #fce4f4cc;
+  border: 2px solid #cfa1f4;
+  border-radius: 15px;
+  padding: 15px 20px;
+  max-width: 250px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 1rem;
+  color: #5c2768;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.boton-comenzar {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  background-color: #d39ff7;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+  z-index: 3;
+}
+
+.boton-comenzar:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .pollo {
+    width: 100px;
+    bottom: 110px;
+    right: 10px;
+  }
+  .globo {
+    bottom: 220px;
+    right: 120px;
+    max-width: 180px;
+    font-size: 0.9rem;
+  }
+  .boton-comenzar {
+    bottom: 15px;
+    left: 15px;
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+}
+#texto-poema {
+    text-align: center;
+  white-space: pre-wrap;
+}

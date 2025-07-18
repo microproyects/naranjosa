@@ -1,3 +1,109 @@
+
+#decoraciones {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+/* Base para las decoraciones */
+.decoracion {
+  position: absolute;
+  opacity: 0.25;
+  animation: flotar 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.1));
+  user-select: none;
+}
+
+/* Corazón */
+.corazon {
+  width: 30px;
+  height: 30px;
+  background: #f7c8f3;
+  position: relative;
+  transform: rotate(-45deg);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+.corazon::before,
+.corazon::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #f7c8f3;
+  border-radius: 50%;
+}
+.corazon::before {
+  top: -15px;
+  left: 0;
+}
+.corazon::after {
+  left: 15px;
+  top: 0;
+}
+
+/* Nube */
+.nube {
+  width: 40px;
+  height: 25px;
+  background: #b2d8d8;
+  border-radius: 20px;
+  position: relative;
+}
+.nube::before,
+.nube::after {
+  content: "";
+  position: absolute;
+  background: #b2d8d8;
+  border-radius: 50%;
+}
+.nube::before {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: 5px;
+}
+.nube::after {
+  width: 25px;
+  height: 25px;
+  top: -15px;
+  left: 15px;
+}
+
+/* Estrella */
+.estrella {
+  position: relative;
+  display: block;
+  color: #d8b2f5;
+  width: 30px;
+  height: 30px;
+}
+.estrella::before, .estrella::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 30px;
+  height: 4px;
+  background: #d8b2f5;
+}
+.estrella::after {
+  transform: rotate(60deg);
+  top: 7px;
+  left: 8px;
+}
+.estrella {
+  transform: rotate(30deg);
+}
+
+/* Animación flotar */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 body {
   margin: 0;
   font-family: 'Comic Sans MS', cursive;
@@ -20,7 +126,7 @@ height: 100vh;
   right: 20px;
   width: 120px;
   animation: flotar 3s ease-in-out infinite;
-  z-index: 0;
+  z-index: 1;
 }
 
 @keyframes flotar {
@@ -31,14 +137,14 @@ height: 100vh;
 .carta-contenedor {
   background: rgba(255, 255, 255, 0.85);
   border: 2px solid #cfa1f4;
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 600px;
-  margin: 20px auto;
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 400px;
+  margin: 10px auto;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
   z-index: 1;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 2;
   color: #5c2768;
   font-family: 'Georgia', serif;
   animation: aparecer 1s ease-in-out;
@@ -52,13 +158,13 @@ height: 100vh;
 }
 
 .boton-comenzar {
-  position: fixed;
-  bottom: 40px;
+  position: absolute;
+  bottom: 10px;
   left: 40px;
   background-color: #d39ff7;
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 12px 12px;
   border-radius: 15px;
   font-size: 1.1rem;
   cursor: pointer;
@@ -72,7 +178,7 @@ height: 100vh;
 }
 @media (max-width: 768px) {
   .pollo {
-    width: 120px;
+    width: 140px;
     right: 10px;
     bottom: 10px;
   }
@@ -81,6 +187,29 @@ height: 100vh;
     bottom: 10px;
     left: 10px;
     font-size: 1rem;
-    padding: 10px 20px;
+    padding: 10px 10px;
   }
+}
+#imagen-final {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#imagen-final.visible {
+  opacity: 1;
+}
+#texto-carta::after {
+  content: "|";
+  animation: parpadeo 0.7s infinite;
+}
+
+@keyframes parpadeo {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#texto-carta {
+  text-align: center;
+  white-space: pre-wrap;
 }

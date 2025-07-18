@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  padding: 50px;
+  padding: 15px;
   font-family: 'Comic Sans MS', cursive;
   background: linear-gradient(135deg, #fff1f1, #fce4f4, #fcefdc);
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
   position: relative;
 }
 
@@ -139,7 +139,7 @@ body {
   }
 
   .pollo {
-    width: 130px;
+    width: 150px;
   }
 
   .boton-comenzar {
