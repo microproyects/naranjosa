@@ -89,9 +89,9 @@ function crearDecoracion() {
 }
 
 // Crear 20 decoraciones al inicio
-for(let i=0; i<40; i++) {
+for(let i=0; i<20; i++) {
   crearDecoracion();
 }
 
 // Crear decoraciones nuevas cada 1.5s para que siempre haya flotando
-setInterval(crearDecoracion, 1000);
+setInterval(crearDecoracion, 1500);
